@@ -1,0 +1,32 @@
+@url = https://apptest.dokandemo.com
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBwdGVzdC5kb2thbmRlbW8uY29tIiwiaWF0IjoxNjM2MDUxMTI1LCJuYmYiOjE2MzYwNTExMjUsImV4cCI6MTYzNjY1NTkyNSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiNjkifX19.pFrFAAvCaM7wGYYMOATnRZrvOnVnbeLwUUwWnD9PIGg
+
+
+//Register
+POST {{url}}/wp-json/wp/v2/users/register
+Content-Type: application/json
+
+{
+    "username": "sam4",
+    "email": "sam4@sample.com",
+    "password": "sam"
+}
+###
+//Login with registered credentials
+POST https://apptest.dokandemo.com/wp-json/jwt-auth/v1/token
+Content-Type: application/x-www-form-urlencoded
+
+username=adlsd
+&password=123
+
+
+###
+POST {{url}}/?wp/v2/users/me
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+
+}
